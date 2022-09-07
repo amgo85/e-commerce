@@ -10,3 +10,10 @@ Changes are pushed
 Video 7 & Video 8 have been fully completed
 No issues at all.
 Changes were pushed
+
+## from Ahmed Sep 07 2022 9:37 AM
+Video 9 & Video 10 have been fully completed
+Fixed the issue of slider not showing in details page issue came up in Video 6.
+Changes were pushed
+
+
