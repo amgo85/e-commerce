@@ -16,4 +16,6 @@ Video 9 & Video 10 have been fully completed
 Fixed the issue of slider not showing in details page issue came up in Video 6.
 Changes were pushed
 
+### From Ahmed I am unable to show only products from specific category, All products get displayed
+
 
