@@ -9,6 +9,7 @@
                 <ul>
                     <li class="item-link"><a href="/" class="link">home</a></li>
                     <li class="item-link"><span>Digital & Electronics</span></li>
+                    <li class="item-link"><span>{{ $category_name }}</span></li>
                 </ul>
             </div>
             <div class="row">
@@ -23,15 +24,14 @@
     
                     <div class="wrap-shop-control">
     
-                        <h1 class="shop-title">Digital & Electronics</h1>
+                        <h1 class="shop-title">{{ $category_name }}</h1>
     
                         <div class="wrap-right">
     
                             <div class="sort-item orderby ">
                                 <select name="orderby" class="use-chosen" wire:model="sorting">
                                     <option value="default" selected="selected">Default sorting</option>
-                                    {{--<option value="popularity">Sort by popularity</option>
-                                    <option value="rating">Sort by average rating</option>--}}
+                                    
                                     <option value="date">Sort by newness</option>
                                     <option value="price">Sort by price: low to high</option>
                                     <option value="price-desc">Sort by price: high to low</option>
@@ -62,7 +62,7 @@
                     <div class="row">
     
                         <ul class="product-list grid-products equal-container">
-                            @foreach ($products as $product)
+                            @foreach ($cat_products as $product)
                             <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
                                 <div class="product product-style-3 equal-elem ">
                                     <div class="product-thumnail">
@@ -83,7 +83,7 @@
                     </div>
     
                     <div class="wrap-pagination-info">
-                        {{$products->links()}}
+                        {{$cat_products->links()}}
                        {{-- <ul class="page-numbers">
                             <li><span class="page-number-item current" >1</span></li>
                             <li><a class="page-number-item" href="#" >2</a></li>
