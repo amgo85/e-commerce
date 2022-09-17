@@ -44,7 +44,7 @@
                                         <!-- (Problem one sloved) ?-> access nullsafe property access-->
                                         <td>{{$product->category?->name}}</td>
                                         <td>{{$product->created_at}}</td>
-                                        <td></td>
+                                        <td><a href="{{route('admin.editproduct',['product_slug'=>$product->slug])}}"><i class="fa fa-edit fa-2x text-info"></i></a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
