@@ -48,8 +48,8 @@
                                 </tr>
                                 @endforeach
                             </tbody>
-                            {{$categories->links()}}
                         </table>
+                        {{$categories->links()}}
                     </div>
                 </div>
             </div>
