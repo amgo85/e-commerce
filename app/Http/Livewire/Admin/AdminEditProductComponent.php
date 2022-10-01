@@ -11,7 +11,6 @@ use Livewire\WithFileUploads;
 
 class AdminEditProductComponent extends Component
 {
-    
     use WithFileUploads;
     public $name;
     public $slug;
@@ -63,13 +62,32 @@ class AdminEditProductComponent extends Component
         $product->stock_status = $this->stock_status;
         $product->featured = $this->featured;
         $product->quantity = $this->quantity;
+        $product->category_id = $this->category_id;
+
+        Product::where('id',$this->product_id)
+            ->update([
+            'name' => $this->name,
+            'slug' => $this->slug,
+            'short_description' => $this->short_description,
+            'description' => $this->description,
+            'regular_price' => $this->regular_price,
+            'sale_price' => $this->sale_price,
+            'SKU' => $this->SKU,
+            'stock_status' => $this->stock_status,
+            'featured' => $this->featured,
+            'quantity' => $this->quantity,
+            'category_id' => $this->category_id
+            ]);
+        
         if($this->newimage){
             $imageName = Carbon::now()->timestamp. '.' . $this->newimage->extension();
             $this->newimage->storeAs('products',$imageName);
             $product->image = $imageName;
+            Product::where('id',$this->product_id)->update([
+                'image' => $this->imageName
+            ]);
         }
-        $product->category_id = $this->category_id;
-        $product->save();
+        //$product->save();
         session()->flash('message','Product has been Updated successfully!');
     }
 

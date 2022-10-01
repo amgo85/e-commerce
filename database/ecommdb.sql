@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2022 at 10:39 PM
+-- Generation Time: Oct 01, 2022 at 03:50 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -40,12 +40,12 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'velit minima', 'velit-minima', '2022-08-24 17:16:22', '2022-08-24 17:16:22'),
-(2, 'cum et', 'cum-et', '2022-08-24 17:16:22', '2022-08-24 17:16:22'),
-(3, 'quo et', 'quo-et', '2022-08-24 17:16:22', '2022-08-24 17:16:22'),
-(4, 'qui accusamus', 'qui-accusamus', '2022-08-24 17:16:22', '2022-08-24 17:16:22'),
-(6, 'voluptatem facilis', 'voluptatem-facilis', '2022-08-24 17:16:23', '2022-08-24 17:16:23'),
-(8, 'DummyCategories', 'dummycategories', '2022-09-14 12:06:52', '2022-09-14 12:06:52');
+(1, 'Mobile Phones & Accessories', 'Mobile-Phones-&-Accessories', '2022-08-24 17:16:22', '2022-08-24 17:16:22'),
+(2, 'Computers & Laptops', 'Computers-&-Laptops', '2022-08-24 17:16:22', '2022-08-24 17:16:22'),
+(3, 'Smart Screens & TVs', 'Smart-Screens-&-TVs', '2022-08-24 17:16:22', '2022-08-24 17:16:22'),
+(4, 'Various Electronics', 'Various-Electronics', '2022-08-24 17:16:22', '2022-08-24 17:16:22'),
+(5, 'Bicycles & Scooters', 'Bicycles-&-Scooters', '2022-08-24 17:16:23', '2022-08-24 17:16:23'),
+(6, 'Fashion Outfits', 'Fashion-Outfits', '2022-09-14 12:06:52', '2022-09-14 12:06:52');
 
 -- --------------------------------------------------------
 
@@ -62,6 +62,27 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `home_categories`
+--
+
+CREATE TABLE `home_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sel_categories` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_of_products` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `home_categories`
+--
+
+INSERT INTO `home_categories` (`id`, `sel_categories`, `no_of_products`, `created_at`, `updated_at`) VALUES
+(1, '1,2,3,5', 6, '2022-09-27 09:17:26', '2022-09-28 00:48:57');
 
 -- --------------------------------------------------------
 
@@ -114,7 +135,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2022_08_17_072329_create_sessions_table', 1),
 (7, '2022_08_22_100659_create_categories_table', 2),
 (8, '2022_08_22_100914_create_products_table', 2),
-(9, '2022_09_22_142606_create_home_sliders_table', 3);
+(9, '2022_09_22_142606_create_home_sliders_table', 3),
+(10, '2022_09_27_091104_create_home_categories_table', 4);
 
 -- --------------------------------------------------------
 
@@ -176,16 +198,16 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `slug`, `short_description`, `description`, `regular_price`, `sale_price`, `SKU`, `stock_status`, `featured`, `quantity`, `image`, `images`, `category_id`, `created_at`, `updated_at`) VALUES
-(1, 'repellat amet voluptas quas', 'repellat-amet-voluptas-quas', 'Sed molestias ut quia ut in. Ut ipsum omnis sequi doloremque. Et sint velit totam eum dolorum sit.', 'Et voluptas id quis et dolores assumenda ea. Ut eveniet veniam aliquid quas quis nobis facilis voluptas. Veritatis cupiditate libero recusandae qui suscipit. Repellat quis magnam qui vero ut eum. Est cupiditate aut est a. Totam et ullam natus. Et sit quo vero molestiae sit velit quae.', '107.00', NULL, 'DIGI109', 'instock', 0, 123, 'digital_11.jpg', NULL, 2, '2022-08-24 17:16:23', '2022-08-24 17:16:23'),
-(2, 'magni dolore itaque expedita', 'magni-dolore-itaque-expedita', 'Ut est similique animi nemo aut. Est voluptas accusamus ut nulla. Dolores consequuntur aspernatur laborum dignissimos. Voluptas repellendus in et ut aliquid.', 'Molestiae qui aut atque alias ullam aperiam qui. Soluta possimus et adipisci et. Eligendi sed esse tenetur vero. Fuga ut non eos ducimus. Cupiditate enim at repudiandae totam. Distinctio est est rerum illum tempora est. Aut enim commodi est voluptatibus repellendus in explicabo. Rerum error est sit dolores. Veniam exercitationem non fugit consequatur nisi tempora vero facilis. Architecto temporibus ipsa eligendi voluptates ullam ea.', '23.00', NULL, 'DIGI153', 'instock', 0, 116, 'digital_1.jpg', NULL, 1, '2022-08-24 17:16:23', '2022-08-24 17:16:23'),
-(3, 'blanditiis et dolorum quia', 'blanditiis-et-dolorum-quia', 'Recusandae veniam sit reiciendis repudiandae omnis incidunt ut. Dignissimos totam magnam error architecto qui. Excepturi culpa dignissimos eum perferendis.', 'Et eum accusamus praesentium cupiditate tenetur delectus dolorem. Aspernatur sed sunt fuga et. Quasi voluptas eaque fugiat atque velit saepe. Enim rem quidem et sit minus. Cum voluptas vero dignissimos ea. Itaque et enim rerum doloribus fuga. Laboriosam qui repudiandae animi distinctio mollitia corporis ipsum. In consectetur repellendus ut.', '111.00', NULL, 'DIGI114', 'instock', 0, 145, 'digital_21.jpg', NULL, 3, '2022-08-24 17:16:23', '2022-08-24 17:16:23'),
+(1, 'repellat amet voluptas quas', 'repellat-amet-voluptas-quas', 'Sed molestias ut quia ut in. Ut ipsum omnis sequi doloremque. Et sint velit totam eum dolorum sit.', 'Et voluptas id quis et dolores assumenda ea. Ut eveniet veniam aliquid quas quis nobis facilis voluptas. Veritatis cupiditate libero recusandae qui suscipit. Repellat quis magnam qui vero ut eum. Est cupiditate aut est a. Totam et ullam natus. Et sit quo vero molestiae sit velit quae.', '107.00', '80.00', 'DIGI109', 'instock', 0, 123, 'digital_11.jpg', NULL, 2, '2022-08-24 17:16:23', '2022-10-01 04:55:56'),
+(2, 'magni dolore itaque expedita', 'magni-dolore-itaque-expedita', 'Ut est similique animi nemo aut. Est voluptas accusamus ut nulla. Dolores consequuntur aspernatur laborum dignissimos. Voluptas repellendus in et ut aliquid.', 'Molestiae qui aut atque alias ullam aperiam qui. Soluta possimus et adipisci et. Eligendi sed esse tenetur vero. Fuga ut non eos ducimus. Cupiditate enim at repudiandae totam. Distinctio est est rerum illum tempora est. Aut enim commodi est voluptatibus repellendus in explicabo. Rerum error est sit dolores. Veniam exercitationem non fugit consequatur nisi tempora vero facilis. Architecto temporibus ipsa eligendi voluptates ullam ea.', '23.00', '14.00', 'DIGI153', 'instock', 0, 116, 'digital_1.jpg', NULL, 1, '2022-08-24 17:16:23', '2022-10-01 04:37:44'),
+(3, 'blanditiis et dolorum quia', 'blanditiis-et-dolorum-quia', 'Recusandae veniam sit reiciendis repudiandae omnis incidunt ut. Dignissimos totam magnam error architecto qui. Excepturi culpa dignissimos eum perferendis.', 'Et eum accusamus praesentium cupiditate tenetur delectus dolorem. Aspernatur sed sunt fuga et. Quasi voluptas eaque fugiat atque velit saepe. Enim rem quidem et sit minus. Cum voluptas vero dignissimos ea. Itaque et enim rerum doloribus fuga. Laboriosam qui repudiandae animi distinctio mollitia corporis ipsum. In consectetur repellendus ut.', '111.00', '95.00', 'DIGI114', 'instock', 0, 145, 'digital_21.jpg', NULL, 3, '2022-08-24 17:16:23', '2022-10-01 06:08:25'),
 (4, 'ut enim vitae eaque', 'ut-enim-vitae-eaque', 'Aut non corrupti quam beatae est. Officia voluptas aut eum soluta. Aut libero quia maxime nihil nostrum.', 'Sit cum id sint vero. Eum molestiae ducimus perspiciatis aut rem dolor. Quaerat praesentium modi dolores harum et et et non. Nihil nesciunt expedita quo perspiciatis quia odio voluptas. Placeat accusantium aliquam dolores est vel. Amet dicta et laudantium ut. Quo repudiandae vel odio. Non nulla consequatur culpa incidunt quo et ullam. Recusandae eos quasi et saepe.', '324.00', NULL, 'DIGI387', 'instock', 0, 184, 'digital_18.jpg', NULL, 2, '2022-08-24 17:16:23', '2022-08-24 17:16:23'),
 (5, 'consequatur in ad non', 'consequatur-in-ad-non', 'Facilis soluta quas voluptatem voluptas. Accusantium ut nobis asperiores quae. Dignissimos odit ratione omnis ipsam. Temporibus error asperiores eius reiciendis quisquam ipsa eius.', 'Reprehenderit similique corrupti accusantium ipsa aut omnis odit. Mollitia id vel illo iure tempora facilis suscipit corporis. Sint in laborum sint magnam qui possimus. Deserunt vitae quod voluptatem sed. Odio esse ut ipsum et est. Voluptatem nulla ad alias aperiam quia quasi. Sapiente et blanditiis id atque et.', '76.00', NULL, 'DIGI407', 'instock', 0, 174, 'digital_7.jpg', NULL, 3, '2022-08-24 17:16:23', '2022-08-24 17:16:23'),
 (6, 'rerum iusto aut et', 'rerum-iusto-aut-et', 'Quos molestiae explicabo eaque eos. Qui totam laboriosam explicabo a excepturi. Beatae dolores amet doloribus alias voluptatem quos. Quaerat quasi aut repudiandae qui incidunt.', 'Rerum ipsum reiciendis repellat ipsam. Quae sed in et quo aspernatur aut. Illum voluptate quis expedita et suscipit et dolorum ad. Quas unde nihil nemo. Qui rerum dolor quidem itaque maxime ducimus. Rem molestiae eius alias minus. Nemo et necessitatibus sint explicabo. Labore dolor esse quod qui. Sequi est suscipit qui optio. Aut amet consequatur velit. Aut quae dolorum natus alias numquam recusandae. Magnam nihil vitae ut. Aliquam vel eum velit voluptate debitis id.', '219.00', NULL, 'DIGI229', 'instock', 0, 155, 'digital_12.jpg', NULL, 3, '2022-08-24 17:16:23', '2022-08-24 17:16:23'),
 (7, 'consectetur quibusdam aut animi', 'consectetur-quibusdam-aut-animi', 'Modi accusamus assumenda fugit magni. Autem vitae corporis rem inventore autem nobis. Dolorem officiis voluptatem harum officiis saepe sunt quia.', 'Illum aperiam culpa porro minima aspernatur unde doloremque non. Eius rerum doloremque et ut quam et natus. Molestiae neque recusandae est ratione est necessitatibus. Iusto odit saepe sint sed saepe cumque. Nostrum consequatur corporis molestiae et ipsa. Atque earum nihil nemo. Dolor dolores accusamus eligendi eligendi dolorum. Qui aperiam quia doloribus eveniet. Maiores optio ipsa mollitia perferendis quia architecto eos ipsam.', '483.00', NULL, 'DIGI122', 'instock', 0, 119, 'digital_3.jpg', NULL, 5, '2022-08-24 17:16:23', '2022-08-24 17:16:23'),
-(8, 'non suscipit minima distinctio', 'non-suscipit-minima-distinctio', 'Corporis autem occaecati alias vel voluptate. Cum voluptates nam corrupti asperiores eveniet temporibus. Maiores dolore sit nam omnis. Voluptas distinctio illo aut vitae.', 'Corporis facilis et et voluptatem eos dolorum. Laudantium et aut sit id. Consequatur officia impedit molestiae iusto qui consequatur. Fugit voluptatem laudantium quo saepe in. Sed architecto est id nesciunt quis. Provident quos molestias et. A a necessitatibus quam cumque et facilis. Similique quo aut recusandae non ab tempora recusandae.', '473.00', NULL, 'DIGI146', 'instock', 0, 142, 'digital_10.jpg', NULL, 4, '2022-08-24 17:16:23', '2022-08-24 17:16:23'),
-(9, 'atque et delectus maiores', 'atque-et-delectus-maiores', 'Quis dignissimos officia labore ipsum ipsam eos. Maxime quibusdam ut et quia. Quo in temporibus fugiat voluptatem quaerat voluptatem soluta.', 'Debitis unde libero voluptas. Aut perspiciatis non mollitia natus nobis voluptatem. Omnis eligendi modi optio nemo molestiae molestiae. Optio sit autem facere. Est libero cumque quia sint assumenda doloribus. Minima praesentium minima aspernatur voluptatem aspernatur ipsam. Ut rem reprehenderit aliquam modi voluptatem. Adipisci quos blanditiis tenetur qui laboriosam dolorem et. Rerum maiores eum distinctio omnis aliquid accusamus consequatur. Et voluptatem nostrum sed voluptas.', '218.00', NULL, 'DIGI163', 'instock', 0, 125, 'digital_8.jpg', NULL, 2, '2022-08-24 17:16:24', '2022-08-24 17:16:24'),
-(10, 'praesentium sed minima non', 'praesentium-sed-minima-non', 'Tenetur quo dicta ut aperiam aliquam. Repellendus quae ipsam tenetur et.', 'Earum ut tempora quasi pariatur. Libero iure atque porro voluptatem aut voluptatem. Rerum nostrum deserunt harum ut corrupti. Maiores eligendi est sit dolore. Quasi minima suscipit recusandae est et nostrum enim. Magnam eos eum qui repudiandae. Quia unde officiis beatae asperiores ut est voluptate. Deserunt consequuntur aspernatur nesciunt tempora quod quo. Ad ea pariatur omnis sit quas eveniet omnis.', '355.00', NULL, 'DIGI267', 'instock', 0, 134, 'digital_14.jpg', NULL, 3, '2022-08-24 17:16:24', '2022-08-24 17:16:24'),
+(8, 'non suscipit minima distinctio', 'non-suscipit-minima-distinctio', 'Corporis autem occaecati alias vel voluptate. Cum voluptates nam corrupti asperiores eveniet temporibus. Maiores dolore sit nam omnis. Voluptas distinctio illo aut vitae.', 'Corporis facilis et et voluptatem eos dolorum. Laudantium et aut sit id. Consequatur officia impedit molestiae iusto qui consequatur. Fugit voluptatem laudantium quo saepe in. Sed architecto est id nesciunt quis. Provident quos molestias et. A a necessitatibus quam cumque et facilis. Similique quo aut recusandae non ab tempora recusandae.', '473.00', '450.00', 'DIGI146', 'instock', 0, 142, 'digital_10.jpg', NULL, 4, '2022-08-24 17:16:23', '2022-10-01 06:16:06'),
+(9, 'atque et delectus maiores', 'atque-et-delectus-maiores', 'Quis dignissimos officia labore ipsum ipsam eos. Maxime quibusdam ut et quia. Quo in temporibus fugiat voluptatem quaerat voluptatem soluta.', 'Debitis unde libero voluptas. Aut perspiciatis non mollitia natus nobis voluptatem. Omnis eligendi modi optio nemo molestiae molestiae. Optio sit autem facere. Est libero cumque quia sint assumenda doloribus. Minima praesentium minima aspernatur voluptatem aspernatur ipsam. Ut rem reprehenderit aliquam modi voluptatem. Adipisci quos blanditiis tenetur qui laboriosam dolorem et. Rerum maiores eum distinctio omnis aliquid accusamus consequatur. Et voluptatem nostrum sed voluptas.', '218.00', '195.00', 'DIGI163', 'instock', 0, 125, 'digital_8.jpg', NULL, 3, '2022-08-24 17:16:24', '2022-10-01 06:11:46'),
+(10, 'praesentium sed minima non', 'praesentium-sed-minima-non', 'Tenetur quo dicta ut aperiam aliquam. Repellendus quae ipsam tenetur et.', 'Earum ut tempora quasi pariatur. Libero iure atque porro voluptatem aut voluptatem. Rerum nostrum deserunt harum ut corrupti. Maiores eligendi est sit dolore. Quasi minima suscipit recusandae est et nostrum enim. Magnam eos eum qui repudiandae. Quia unde officiis beatae asperiores ut est voluptate. Deserunt consequuntur aspernatur nesciunt tempora quod quo. Ad ea pariatur omnis sit quas eveniet omnis.', '355.00', '0.00', 'DIGI267', 'instock', 0, 134, 'digital_14.jpg', NULL, 2, '2022-08-24 17:16:24', '2022-10-01 06:13:49'),
 (11, 'non ad quisquam sapiente', 'non-ad-quisquam-sapiente', 'Voluptatem vel ipsam vero magni reiciendis exercitationem dicta. Beatae exercitationem voluptate nulla error explicabo ullam. Beatae sed ut dicta ut nostrum.', 'Facere animi tenetur est qui ad. Ut et pariatur facilis tempora ab sint facilis. Quasi placeat tempora a quia cumque. Ipsum dolore illo omnis quasi aut. Ullam aut asperiores praesentium consequatur dignissimos dolorem id. Non voluptatem quia ex. Quasi voluptas voluptas et. Eaque saepe deserunt omnis est aspernatur illo. Dicta culpa ut officiis accusantium qui suscipit voluptas autem. Consequatur et distinctio vitae labore autem rerum a.', '207.00', NULL, 'DIGI155', 'instock', 0, 141, 'digital_2.jpg', NULL, 1, '2022-08-24 17:16:24', '2022-08-24 17:16:24'),
 (12, 'voluptatum consequatur est facilis', 'voluptatum-consequatur-est-facilis', 'Ducimus illo modi corporis aliquam ut repellat. A officiis non fugit esse. Incidunt voluptas consequatur labore eos. Hic voluptas suscipit numquam et enim illo aliquam.', 'Qui ipsa ipsum beatae beatae corporis. Non vel labore et ab. Quidem iste numquam laborum est. Adipisci pariatur quis sit veniam fugiat est quod aliquid. Magni dolores voluptatum modi rerum enim id quia. Libero qui voluptatem eos ipsam consequuntur. Explicabo quod nemo eius minima. Voluptates facilis ut voluptas qui et totam delectus.', '348.00', NULL, 'DIGI315', 'instock', 0, 197, 'digital_22.jpg', NULL, 4, '2022-08-24 17:16:24', '2022-08-24 17:16:24'),
 (13, 'eius et tempore temporibus', 'eius-et-tempore-temporibus', 'Aut fugiat est ut consequatur dolores ut. Ipsam voluptas quaerat sit eum iure. Impedit dignissimos quae consequatur qui et.', 'Aut nesciunt autem eligendi praesentium. Dolor dolor qui officia. Fugiat quia suscipit molestiae adipisci quia in saepe totam. Necessitatibus culpa ut id laborum voluptatem. Itaque facere consequatur impedit ex. Eveniet et qui impedit aliquam consectetur excepturi. Voluptas necessitatibus incidunt blanditiis totam illo beatae dolorem.', '69.00', NULL, 'DIGI311', 'instock', 0, 111, 'digital_17.jpg', NULL, 3, '2022-08-24 17:16:24', '2022-08-24 17:16:24'),
@@ -197,7 +219,8 @@ INSERT INTO `products` (`id`, `name`, `slug`, `short_description`, `description`
 (19, 'et voluptatem quia sint', 'et-voluptatem-quia-sint', 'Nobis optio cupiditate ex. Necessitatibus eius consectetur laborum quaerat ipsa ut ut. Sunt ea magni et neque non facere eum. Sed nostrum molestiae perferendis id rerum corrupti.', 'Officia tenetur facilis cupiditate perspiciatis consectetur debitis sed unde. Eius rerum necessitatibus est tenetur dignissimos corporis exercitationem. Et ut quam excepturi porro doloremque voluptatem nostrum impedit. Doloremque quo qui beatae velit libero exercitationem. A culpa aperiam aperiam molestiae libero quam praesentium. Id voluptas corporis et ea voluptas dolor.', '268.00', NULL, 'DIGI464', 'instock', 0, 185, 'digital_13.jpg', NULL, 3, '2022-08-24 17:16:24', '2022-08-24 17:16:24'),
 (20, 'ut perspiciatis nam qui', 'ut-perspiciatis-nam-qui', 'Recusandae ut vel laudantium sed aut. Accusamus quod perspiciatis deleniti quia est distinctio. Ipsum libero ratione distinctio perferendis illo officiis qui. Totam omnis aut provident.', 'Sint rerum aspernatur consequatur quam delectus. Sint quia labore et distinctio deleniti eligendi. Natus unde nobis iste ea. Iusto quo iure voluptatibus dolorem. Reiciendis sit enim alias unde et. Consequatur recusandae magnam aliquam quae. Tempore voluptatum dolores hic maiores atque quia. Exercitationem soluta voluptatem est nemo et eum. Ut quos autem velit hic voluptas sed voluptatum. Non totam quae cum. Assumenda similique velit eum eaque sit. Sint ut dicta placeat enim vel est.', '466.00', NULL, 'DIGI166', 'instock', 0, 126, 'digital_20.jpg', NULL, 2, '2022-08-24 17:16:24', '2022-08-24 17:16:24'),
 (21, 'necessitatibus sunt omnis corporis', 'necessitatibus-sunt-omnis-corporis', 'Labore distinctio sunt incidunt quae. Eligendi occaecati adipisci sit rerum dolore distinctio mollitia aperiam. Qui et velit illum doloremque.', 'Ut nostrum recusandae voluptatem dolores debitis. Illo explicabo vitae quisquam voluptatibus. Ut minus et eligendi voluptatum corrupti commodi cumque omnis. Quasi excepturi tempora eaque fugiat reprehenderit sit eum. Sapiente eligendi enim ut consectetur voluptatem et. Omnis sequi aut aut corrupti incidunt amet iure. Harum deleniti non nihil omnis. Et alias maiores et et. Non sunt ut omnis saepe. Vitae inventore accusamus eos voluptatem.', '297.00', NULL, 'DIGI450', 'instock', 0, 170, 'digital_19.jpg', NULL, 3, '2022-08-24 17:16:24', '2022-08-24 17:16:24'),
-(22, 'repellat eos facilis voluptates', 'repellat-eos-facilis-voluptates', 'Consectetur eveniet atque natus odit in blanditiis. Assumenda dolorem error quo rem. Eum ut nam beatae est sit nesciunt maiores. Facilis quam dolor repudiandae ut.', 'Dolorum autem est quaerat rerum dolores accusantium consequuntur consequuntur. Saepe minus eum natus voluptatem. Placeat qui eveniet consequatur atque consequatur quas. Odit voluptas dicta blanditiis. Architecto in inventore et sed laudantium quas molestiae. Sed voluptatibus ut veritatis. Et est consequatur et quia. Molestiae perspiciatis enim numquam blanditiis quia ut. Ea exercitationem voluptatem molestiae vel officiis sapiente. Velit consequatur sit modi at veritatis nam cum.', '355.00', NULL, 'DIGI184', 'instock', 0, 161, 'digital_6.jpg', NULL, 1, '2022-08-24 17:16:24', '2022-08-24 17:16:24');
+(22, 'repellat eos facilis voluptates', 'repellat-eos-facilis-voluptates', 'Consectetur eveniet atque natus odit in blanditiis. Assumenda dolorem error quo rem. Eum ut nam beatae est sit nesciunt maiores. Facilis quam dolor repudiandae ut.', 'Dolorum autem est quaerat rerum dolores accusantium consequuntur consequuntur. Saepe minus eum natus voluptatem. Placeat qui eveniet consequatur atque consequatur quas. Odit voluptas dicta blanditiis. Architecto in inventore et sed laudantium quas molestiae. Sed voluptatibus ut veritatis. Et est consequatur et quia. Molestiae perspiciatis enim numquam blanditiis quia ut. Ea exercitationem voluptatem molestiae vel officiis sapiente. Velit consequatur sit modi at veritatis nam cum.', '355.00', NULL, 'DIGI184', 'instock', 0, 161, 'digital_6.jpg', NULL, 1, '2022-08-24 17:16:24', '2022-08-24 17:16:24'),
+(23, 'Hand Watch', 'hand-watch', 'Classic Hand Watch', 'Amazing yet cheap Hand watch', '20.00', '10.00', 'DIGI78495', 'instock', 0, 148, '1664012228.jpg', NULL, 6, '2022-09-24 05:37:08', '2022-10-01 06:10:50');
 
 -- --------------------------------------------------------
 
@@ -219,10 +242,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('m0dwc6gB7AFicegPieL0jqb9uqM0v4bOzI2QVhuV', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiYUtLRjd3NXd5enZpdzc0cWVCSUFXeUR6amhjb21NdjZidVBXc3Y3ZyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czo1OiJ1dHlwZSI7czozOiJBRE0iO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkNXcwV2lscTE3STBNbG5UN0dnODlZdWczUEJQai5hODg4TDJxS0V1d3dKai5OVHZQcy5rMUMiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJDV3MFdpbHExN0kwTWxuVDdHZzg5WXVnM1BCUGouYTg4OEwycUtFdXd3SmouTlR2UHMuazFDIjt9', 1663965204),
-('p33o3QgzNIxkmp21T93NQtfgV4XVleb72XXInDqJ', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36', 'YTo4OntzOjY6Il90b2tlbiI7czo0MDoiSnJmaEpaSnFaME43M2dLYVBXOHBXZ0JOdVpDeW1CNEs4djBwN0ZPTSI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozODoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2FkbWluL3NsaWRlci9hZGQiO31zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozNDoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2FkbWluL3NsaWRlciI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czo1OiJ1dHlwZSI7czozOiJBRE0iO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkNXcwV2lscTE3STBNbG5UN0dnODlZdWczUEJQai5hODg4TDJxS0V1d3dKai5OVHZQcy5rMUMiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJDV3MFdpbHExN0kwTWxuVDdHZzg5WXVnM1BCUGouYTg4OEwycUtFdXd3SmouTlR2UHMuazFDIjt9', 1663941546),
-('WuJ5vupnYyPP4Rd3YYmd6SaNA4amgfGo45Ykybyr', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36', 'YTo4OntzOjY6Il90b2tlbiI7czo0MDoiNUV1cmIzT1d2bFMzdlowS3NkTlZ4QkZSTENCY3VvY1B5UXAzRW5nUiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNDoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2FkbWluL3NsaWRlciI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjIxOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6NToidXR5cGUiO3M6MzoiQURNIjtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJDV3MFdpbHExN0kwTWxuVDdHZzg5WXVnM1BCUGouYTg4OEwycUtFdXd3SmouTlR2UHMuazFDIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCQ1dzBXaWxxMTdJME1sblQ3R2c4OVl1ZzNQQlBqLmE4ODhMMnFLRXV3d0pqLk5UdlBzLmsxQyI7fQ==', 1663964822),
-('YoPtoR9eEib9hF9AxFa7mLILXylfhId2UcWWvWih', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVzVpR1RRVjhmU3I5ekt6M21uN0VQcVVKMk1PcGtSbWVaZGZUWFpHbSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9zaG9wIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1663940703);
+('3IVZY8Fxr0d87Sf8tYypeZDv8tzBnq5HyKrpkHGm', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiRG1wVndnRWRnWjlXbzNPRDNxYmFXT2JJWVRBVkpNS3dyRW9PVGtBOSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NjA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0L25vbi1zdXNjaXBpdC1taW5pbWEtZGlzdGluY3RpbyI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czo1OiJ1dHlwZSI7czozOiJBRE0iO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkNXcwV2lscTE3STBNbG5UN0dnODlZdWczUEJQai5hODg4TDJxS0V1d3dKai5OVHZQcy5rMUMiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJDV3MFdpbHExN0kwTWxuVDdHZzg5WXVnM1BCUGouYTg4OEwycUtFdXd3SmouTlR2UHMuazFDIjt9', 1664619423),
+('7KcAPl6fnXxoYYRUlkqjPDubdBUaZkq7vPFBAvEC', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiSGo3c25OZUhRRmdMMFBuT0w2YnZpMlB2VjFyd1JONHdlNjEzZTFaaiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0L2F0cXVlLWV0LWRlbGVjdHVzLW1haW9yZXMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1664631981);
 
 -- --------------------------------------------------------
 
@@ -274,6 +295,12 @@ ALTER TABLE `categories`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `home_categories`
+--
+ALTER TABLE `home_categories`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `home_sliders`
@@ -340,6 +367,12 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `home_categories`
+--
+ALTER TABLE `home_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `home_sliders`
 --
 ALTER TABLE `home_sliders`
@@ -349,7 +382,7 @@ ALTER TABLE `home_sliders`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -361,7 +394,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `users`

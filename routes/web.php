@@ -18,6 +18,8 @@ use App\Http\Livewire\Admin\AdminHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminAddHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
 
+use App\Http\Livewire\Admin\AdminHomeCategoryComponent;
+
 use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -76,5 +78,8 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function(){
     Route::get('/admin/slider/add',AdminAddHomeSliderComponent::class)->name('admin.addhomeslider');
     // This is for Admin Edit Home Slider
     Route::get('/admin/slider/edit/{slide_id}',AdminEditHomeSliderComponent::class)->name('admin.edithomeslider');
+
+    // This is for Admin Home Category
+    Route::get('/admin/home-categories',AdminHomeCategoryComponent::class)->name('admin.homecategories');
 });
 
