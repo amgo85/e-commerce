@@ -84,7 +84,7 @@ class AdminEditProductComponent extends Component
             $this->newimage->storeAs('products',$imageName);
             $product->image = $imageName;
             Product::where('id',$this->product_id)->update([
-                'image' => $this->imageName
+                'image' => $product->image
             ]);
         }
         //$product->save();
