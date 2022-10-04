@@ -20,6 +20,8 @@ use App\Http\Livewire\Admin\AdminEditHomeSliderComponent;
 
 use App\Http\Livewire\Admin\AdminHomeCategoryComponent;
 
+use App\Http\Livewire\Admin\AdminSaleComponent;
+
 use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -81,5 +83,9 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function(){
 
     // This is for Admin Home Category
     Route::get('/admin/home-categories',AdminHomeCategoryComponent::class)->name('admin.homecategories');
+
+    // This is for Admin Sale
+    Route::get('/admin/sale',AdminSaleComponent::class)->name('admin.sale');
+    
 });
 

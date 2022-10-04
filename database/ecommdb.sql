@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 01, 2022 at 03:50 PM
+-- Generation Time: Oct 04, 2022 at 12:01 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -136,7 +136,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2022_08_22_100659_create_categories_table', 2),
 (8, '2022_08_22_100914_create_products_table', 2),
 (9, '2022_09_22_142606_create_home_sliders_table', 3),
-(10, '2022_09_27_091104_create_home_categories_table', 4);
+(10, '2022_09_27_091104_create_home_categories_table', 4),
+(11, '2022_10_03_134203_create_sales_table', 5);
 
 -- --------------------------------------------------------
 
@@ -198,7 +199,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `slug`, `short_description`, `description`, `regular_price`, `sale_price`, `SKU`, `stock_status`, `featured`, `quantity`, `image`, `images`, `category_id`, `created_at`, `updated_at`) VALUES
-(1, 'repellat amet voluptas quas', 'repellat-amet-voluptas-quas', 'Sed molestias ut quia ut in. Ut ipsum omnis sequi doloremque. Et sint velit totam eum dolorum sit.', 'Et voluptas id quis et dolores assumenda ea. Ut eveniet veniam aliquid quas quis nobis facilis voluptas. Veritatis cupiditate libero recusandae qui suscipit. Repellat quis magnam qui vero ut eum. Est cupiditate aut est a. Totam et ullam natus. Et sit quo vero molestiae sit velit quae.', '107.00', '80.00', 'DIGI109', 'instock', 0, 123, 'digital_11.jpg', NULL, 2, '2022-08-24 17:16:23', '2022-10-01 04:55:56'),
+(1, 'repellat amet voluptas quas', 'repellat-amet-voluptas-quas', 'Sed molestias ut quia ut in. Ut ipsum omnis sequi doloremque. Et sint velit totam eum dolorum sit.', 'Et voluptas id quis et dolores assumenda ea. Ut eveniet veniam aliquid quas quis nobis facilis voluptas. Veritatis cupiditate libero recusandae qui suscipit. Repellat quis magnam qui vero ut eum. Est cupiditate aut est a. Totam et ullam natus. Et sit quo vero molestiae sit velit quae.', '107.00', '80.00', 'DIGI109', 'instock', 0, 123, '1664632893.jpg', NULL, 2, '2022-08-24 17:16:23', '2022-10-01 10:01:33'),
 (2, 'magni dolore itaque expedita', 'magni-dolore-itaque-expedita', 'Ut est similique animi nemo aut. Est voluptas accusamus ut nulla. Dolores consequuntur aspernatur laborum dignissimos. Voluptas repellendus in et ut aliquid.', 'Molestiae qui aut atque alias ullam aperiam qui. Soluta possimus et adipisci et. Eligendi sed esse tenetur vero. Fuga ut non eos ducimus. Cupiditate enim at repudiandae totam. Distinctio est est rerum illum tempora est. Aut enim commodi est voluptatibus repellendus in explicabo. Rerum error est sit dolores. Veniam exercitationem non fugit consequatur nisi tempora vero facilis. Architecto temporibus ipsa eligendi voluptates ullam ea.', '23.00', '14.00', 'DIGI153', 'instock', 0, 116, 'digital_1.jpg', NULL, 1, '2022-08-24 17:16:23', '2022-10-01 04:37:44'),
 (3, 'blanditiis et dolorum quia', 'blanditiis-et-dolorum-quia', 'Recusandae veniam sit reiciendis repudiandae omnis incidunt ut. Dignissimos totam magnam error architecto qui. Excepturi culpa dignissimos eum perferendis.', 'Et eum accusamus praesentium cupiditate tenetur delectus dolorem. Aspernatur sed sunt fuga et. Quasi voluptas eaque fugiat atque velit saepe. Enim rem quidem et sit minus. Cum voluptas vero dignissimos ea. Itaque et enim rerum doloribus fuga. Laboriosam qui repudiandae animi distinctio mollitia corporis ipsum. In consectetur repellendus ut.', '111.00', '95.00', 'DIGI114', 'instock', 0, 145, 'digital_21.jpg', NULL, 3, '2022-08-24 17:16:23', '2022-10-01 06:08:25'),
 (4, 'ut enim vitae eaque', 'ut-enim-vitae-eaque', 'Aut non corrupti quam beatae est. Officia voluptas aut eum soluta. Aut libero quia maxime nihil nostrum.', 'Sit cum id sint vero. Eum molestiae ducimus perspiciatis aut rem dolor. Quaerat praesentium modi dolores harum et et et non. Nihil nesciunt expedita quo perspiciatis quia odio voluptas. Placeat accusantium aliquam dolores est vel. Amet dicta et laudantium ut. Quo repudiandae vel odio. Non nulla consequatur culpa incidunt quo et ullam. Recusandae eos quasi et saepe.', '324.00', NULL, 'DIGI387', 'instock', 0, 184, 'digital_18.jpg', NULL, 2, '2022-08-24 17:16:23', '2022-08-24 17:16:23'),
@@ -225,6 +226,27 @@ INSERT INTO `products` (`id`, `name`, `slug`, `short_description`, `description`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sales`
+--
+
+CREATE TABLE `sales` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sale_date` datetime NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sales`
+--
+
+INSERT INTO `sales` (`id`, `sale_date`, `status`, `created_at`, `updated_at`) VALUES
+(1, '2022-10-06 17:54:05', 1, NULL, '2022-10-04 00:03:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sessions`
 --
 
@@ -242,8 +264,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('3IVZY8Fxr0d87Sf8tYypeZDv8tzBnq5HyKrpkHGm', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiRG1wVndnRWRnWjlXbzNPRDNxYmFXT2JJWVRBVkpNS3dyRW9PVGtBOSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NjA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0L25vbi1zdXNjaXBpdC1taW5pbWEtZGlzdGluY3RpbyI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czo1OiJ1dHlwZSI7czozOiJBRE0iO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkNXcwV2lscTE3STBNbG5UN0dnODlZdWczUEJQai5hODg4TDJxS0V1d3dKai5OVHZQcy5rMUMiO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJ5JDEwJDV3MFdpbHExN0kwTWxuVDdHZzg5WXVnM1BCUGouYTg4OEwycUtFdXd3SmouTlR2UHMuazFDIjt9', 1664619423),
-('7KcAPl6fnXxoYYRUlkqjPDubdBUaZkq7vPFBAvEC', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiSGo3c25OZUhRRmdMMFBuT0w2YnZpMlB2VjFyd1JONHdlNjEzZTFaaiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0L2F0cXVlLWV0LWRlbGVjdHVzLW1haW9yZXMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1664631981);
+('gcL7IlKH9yDH2gwzQtp6MWBzlBnZGj4PJFDFjw5t', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiVFIzWUhvZW5uNE9pQ05yUlZoZ1d4Vld1eFVZWTJIZmIzc1pybGVUdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9zYWxlIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjU6InV0eXBlIjtzOjM6IkFETSI7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCQ1dzBXaWxxMTdJME1sblQ3R2c4OVl1ZzNQQlBqLmE4ODhMMnFLRXV3d0pqLk5UdlBzLmsxQyI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkNXcwV2lscTE3STBNbG5UN0dnODlZdWczUEJQai5hODg4TDJxS0V1d3dKai5OVHZQcy5rMUMiO30=', 1664825491),
+('lGE2ZQvCpC7iFr5B8MJ5TSYEu9CHP7i32Uaq4ZSm', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.53', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiT0JZVklBSWNiMzFBVGsyOVVpOG9jaEtVclZqMDZhUDQ3dEdmOFRSaSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0L21hZ25pLWRvbG9yZS1pdGFxdWUtZXhwZWRpdGEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6NToidXR5cGUiO3M6MzoiQURNIjtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJDV3MFdpbHExN0kwTWxuVDdHZzg5WXVnM1BCUGouYTg4OEwycUtFdXd3SmouTlR2UHMuazFDIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCQ1dzBXaWxxMTdJME1sblQ3R2c4OVl1ZzNQQlBqLmE4ODhMMnFLRXV3d0pqLk5UdlBzLmsxQyI7fQ==', 1664862899),
+('RTztWYY90ZtxU2l2aDetuebXDY3tFGzZ7MkFhAdd', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoia0FNWEZkcEhkalZlMk51QWQ2b1Zhc1g5SjFaanB3Z0dxZ3VzRDRFZiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozMjoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2FkbWluL3NhbGUiO31zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czoyNzoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2xvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1664854001);
 
 -- --------------------------------------------------------
 
@@ -336,6 +359,12 @@ ALTER TABLE `products`
   ADD UNIQUE KEY `products_slug_unique` (`slug`);
 
 --
+-- Indexes for table `sales`
+--
+ALTER TABLE `sales`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
@@ -382,7 +411,7 @@ ALTER TABLE `home_sliders`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -395,6 +424,12 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `sales`
+--
+ALTER TABLE `sales`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
