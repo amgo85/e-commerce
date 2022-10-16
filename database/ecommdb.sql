@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 04, 2022 at 12:01 PM
+-- Generation Time: Oct 14, 2022 at 02:15 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -142,18 +142,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
---
-
-CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `personal_access_tokens`
 --
 
@@ -199,7 +187,6 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `slug`, `short_description`, `description`, `regular_price`, `sale_price`, `SKU`, `stock_status`, `featured`, `quantity`, `image`, `images`, `category_id`, `created_at`, `updated_at`) VALUES
-(1, 'repellat amet voluptas quas', 'repellat-amet-voluptas-quas', 'Sed molestias ut quia ut in. Ut ipsum omnis sequi doloremque. Et sint velit totam eum dolorum sit.', 'Et voluptas id quis et dolores assumenda ea. Ut eveniet veniam aliquid quas quis nobis facilis voluptas. Veritatis cupiditate libero recusandae qui suscipit. Repellat quis magnam qui vero ut eum. Est cupiditate aut est a. Totam et ullam natus. Et sit quo vero molestiae sit velit quae.', '107.00', '80.00', 'DIGI109', 'instock', 0, 123, '1664632893.jpg', NULL, 2, '2022-08-24 17:16:23', '2022-10-01 10:01:33'),
 (2, 'magni dolore itaque expedita', 'magni-dolore-itaque-expedita', 'Ut est similique animi nemo aut. Est voluptas accusamus ut nulla. Dolores consequuntur aspernatur laborum dignissimos. Voluptas repellendus in et ut aliquid.', 'Molestiae qui aut atque alias ullam aperiam qui. Soluta possimus et adipisci et. Eligendi sed esse tenetur vero. Fuga ut non eos ducimus. Cupiditate enim at repudiandae totam. Distinctio est est rerum illum tempora est. Aut enim commodi est voluptatibus repellendus in explicabo. Rerum error est sit dolores. Veniam exercitationem non fugit consequatur nisi tempora vero facilis. Architecto temporibus ipsa eligendi voluptates ullam ea.', '23.00', '14.00', 'DIGI153', 'instock', 0, 116, 'digital_1.jpg', NULL, 1, '2022-08-24 17:16:23', '2022-10-01 04:37:44'),
 (3, 'blanditiis et dolorum quia', 'blanditiis-et-dolorum-quia', 'Recusandae veniam sit reiciendis repudiandae omnis incidunt ut. Dignissimos totam magnam error architecto qui. Excepturi culpa dignissimos eum perferendis.', 'Et eum accusamus praesentium cupiditate tenetur delectus dolorem. Aspernatur sed sunt fuga et. Quasi voluptas eaque fugiat atque velit saepe. Enim rem quidem et sit minus. Cum voluptas vero dignissimos ea. Itaque et enim rerum doloribus fuga. Laboriosam qui repudiandae animi distinctio mollitia corporis ipsum. In consectetur repellendus ut.', '111.00', '95.00', 'DIGI114', 'instock', 0, 145, 'digital_21.jpg', NULL, 3, '2022-08-24 17:16:23', '2022-10-01 06:08:25'),
 (4, 'ut enim vitae eaque', 'ut-enim-vitae-eaque', 'Aut non corrupti quam beatae est. Officia voluptas aut eum soluta. Aut libero quia maxime nihil nostrum.', 'Sit cum id sint vero. Eum molestiae ducimus perspiciatis aut rem dolor. Quaerat praesentium modi dolores harum et et et non. Nihil nesciunt expedita quo perspiciatis quia odio voluptas. Placeat accusantium aliquam dolores est vel. Amet dicta et laudantium ut. Quo repudiandae vel odio. Non nulla consequatur culpa incidunt quo et ullam. Recusandae eos quasi et saepe.', '324.00', NULL, 'DIGI387', 'instock', 0, 184, 'digital_18.jpg', NULL, 2, '2022-08-24 17:16:23', '2022-08-24 17:16:23'),
@@ -242,7 +229,7 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`id`, `sale_date`, `status`, `created_at`, `updated_at`) VALUES
-(1, '2022-10-06 17:54:05', 1, NULL, '2022-10-04 00:03:00');
+(1, '2022-10-11 05:54:05', 1, NULL, '2022-10-09 08:56:12');
 
 -- --------------------------------------------------------
 
@@ -264,9 +251,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('gcL7IlKH9yDH2gwzQtp6MWBzlBnZGj4PJFDFjw5t', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiVFIzWUhvZW5uNE9pQ05yUlZoZ1d4Vld1eFVZWTJIZmIzc1pybGVUdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9zYWxlIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjU6InV0eXBlIjtzOjM6IkFETSI7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCQ1dzBXaWxxMTdJME1sblQ3R2c4OVl1ZzNQQlBqLmE4ODhMMnFLRXV3d0pqLk5UdlBzLmsxQyI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkNXcwV2lscTE3STBNbG5UN0dnODlZdWczUEJQai5hODg4TDJxS0V1d3dKai5OVHZQcy5rMUMiO30=', 1664825491),
-('lGE2ZQvCpC7iFr5B8MJ5TSYEu9CHP7i32Uaq4ZSm', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.53', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiT0JZVklBSWNiMzFBVGsyOVVpOG9jaEtVclZqMDZhUDQ3dEdmOFRSaSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9kdWN0L21hZ25pLWRvbG9yZS1pdGFxdWUtZXhwZWRpdGEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6NToidXR5cGUiO3M6MzoiQURNIjtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJDV3MFdpbHExN0kwTWxuVDdHZzg5WXVnM1BCUGouYTg4OEwycUtFdXd3SmouTlR2UHMuazFDIjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCQ1dzBXaWxxMTdJME1sblQ3R2c4OVl1ZzNQQlBqLmE4ODhMMnFLRXV3d0pqLk5UdlBzLmsxQyI7fQ==', 1664862899),
-('RTztWYY90ZtxU2l2aDetuebXDY3tFGzZ7MkFhAdd', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoia0FNWEZkcEhkalZlMk51QWQ2b1Zhc1g5SjFaanB3Z0dxZ3VzRDRFZiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozMjoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2FkbWluL3NhbGUiO31zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czoyNzoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2xvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1664854001);
+('mpoM6dFNQqcS5qoI1ZMQPREfgLnifXCrCj7MA5bm', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 Edg/106.0.1370.37', 'YTo4OntzOjY6Il90b2tlbiI7czo0MDoiT3RJOFVUeld1U05Ud3FkYkE4Q0dPTFZRZjJEYjdXZDZjc0hvZEFMYyI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czo2ODoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2FkbWluL3Byb2R1Y3QvZWRpdC9yZXBlbGxhdC1hbWV0LXZvbHVwdGFzLXF1YXMiO31zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozNjoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2FkbWluL3Byb2R1Y3RzIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MTp7aTowO3M6NzoibWVzc2FnZSI7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjU6InV0eXBlIjtzOjM6IkFETSI7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCQ1dzBXaWxxMTdJME1sblQ3R2c4OVl1ZzNQQlBqLmE4ODhMMnFLRXV3d0pqLk5UdlBzLmsxQyI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkNXcwV2lscTE3STBNbG5UN0dnODlZdWczUEJQai5hODg4TDJxS0V1d3dKai5OVHZQcy5rMUMiO30=', 1665630464);
 
 -- --------------------------------------------------------
 
@@ -338,12 +323,6 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_resets`
---
-ALTER TABLE `password_resets`
-  ADD KEY `password_resets_email_index` (`email`);
-
---
 -- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
@@ -387,7 +366,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
