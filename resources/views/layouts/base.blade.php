@@ -148,7 +148,9 @@
 								<a href="#" class="link-direction">
 									<i class="fa fa-heart" aria-hidden="true"></i>
 									<div class="left-info">
-										<span class="index">0 item</span>
+										@if(Cart::instance('wishlist')->count() > 0)
+											<span class="index">{{Cart::instance('wishlist')->count()}} item</span>
+										@endif
 										<span class="title">Wishlist</span>
 									</div>
 								</a>
@@ -157,8 +159,8 @@
 								<a href="#" class="link-direction">
 									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 									<div class="left-info">
-										@if (Cart::count() > 0 )
-											<span class="index">{{ Cart:: count() }} items</span>
+										@if (Cart::instance('cart')->count() > 0 )
+											<span class="index">{{ Cart::instance('cart')->count() }} items</span>
 										@endif
 										<span class="title">CART</span>
 									</div>
@@ -490,6 +492,10 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" integrity="sha512-GDey37RZAxFkpFeJorEUwNoIbkTwsyC736KNSYucu1WJWFK9qTdzYub8ATxktr6Dwke7nbFaioypzbDOQykoRg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.js" integrity="sha512-1mDhG//LAjM3pLXCJyaA+4c+h5qmMoTc7IuJyuNNPaakrWT9rVTxICK4tIizf7YwJsXgDC2JP74PGCc7qxLAHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	
+	{{--<script src="https://<hostname.tld>/tinymce.min.js" referrerpolicy="origin"></script>--}}
+	{{--<script src="http://127.0.0.1:8000/admin/product/add/tinymce.min.js" referrerpolicy="origin"></script>--}}
+	<script src="https://cdn.tiny.cloud/1/h3nfcq1ka3qm623h4e946kpgo83zrvzqdcwd7pba9hvz613e/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
     @livewireScripts
 
 	@stack('scripts')
