@@ -14,3 +14,6 @@ the add to cart button is not really adding to cart
 
 another issue is that slug field in updating category doesn't allow for update
 sam applies for updating product
+
+
+Video 36 done successfully
