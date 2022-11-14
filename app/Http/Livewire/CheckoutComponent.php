@@ -185,7 +185,7 @@ Class CheckoutComponent extends Component
 
         else if ($this->paymentmode == 'card')
         {
-            $stripe = Stripe∷make(env('STRIPE_KEY'));
+            $stripe = Stripe::make(env('STRIPE_KEY'));
             try{
                 $token = $stripe->tokens()->create([
                     'cart' => [
@@ -196,7 +196,7 @@ Class CheckoutComponent extends Component
                     ]
                 ]);
                 
-                If(!isset($token['id'])) 
+                if(!isset($token['id'])) 
                 {
                     session()->flash('stripe_error','The stripe token was not genrated correctly!');
                     $this->thankyou = 0;
@@ -207,22 +207,22 @@ Class CheckoutComponent extends Component
                     'email'=> $this->email, 
                     'phone'=> $this->mobile, 
                     'address'=> [
-                    'line1' =>$this->line1, 
-                    'postal_code' => $this->zipcode,
-                    'city' => $this->city, 
-                    'state' => $this->province, 
-                    'country' => $this->country
+                        'line1' =>$this->line1, 
+                        'postal_code' => $this->zipcode,
+                        'city' => $this->city, 
+                        'state' => $this->province, 
+                        'country' => $this->country
 
                     ],
                     
                     'shipping' => [
                         'name' => $this->firstname . ' ' . $this->lastname,
                         'address'=> [
-                        'line1' =>$this->line1, 
-                        'postal_code' => $this->zipcode,
-                        'city' => $this->city, 
-                        'state' => $this->province, 
-                        'country' => $this->country
+                            'line1' =>$this->line1, 
+                            'postal_code' => $this->zipcode,
+                            'city' => $this->city, 
+                            'state' => $this->province, 
+                            'country' => $this->country
 
                         ],
                     ],
@@ -237,7 +237,7 @@ Class CheckoutComponent extends Component
                     'description' => 'payment for order no' . $order->id
                 ]);
 
-                If($charge['status'] == 'succeeded')
+                if($charge['status'] == 'succeeded')
                 {
                     $this->makeTransaction($order->id,'approved');
                     $this->resetCart();
